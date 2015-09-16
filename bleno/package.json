@@ -1,0 +1,14 @@
+{
+  "name": "duplicate-uuid-service",
+  "version": "1.0.0",
+  "description": "Bluetooth LE Service with duplicate UUIDs",
+  "main": "duplicate-uuid-service.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Don Coleman",
+  "license": "ISC",
+  "dependencies": {
+    "bleno": "^0.2.1"
+  }
+}
