@@ -55,8 +55,7 @@ var app = {
     },
     read: function() {
         app.log("Read");
-        ble.read(app.connectedPeripheral.id, SERVICE,
-            READ_CHARACTERISTIC, app.onRead, app.onError);
+        ble.read(app.connectedPeripheral.id, SERVICE, READ_CHARACTERISTIC, app.onRead, app.onError);
     },
     onRead: function(buffer) {
         app.log("onRead");
@@ -67,22 +66,17 @@ var app = {
         app.log("Write");
         var data = new Uint32Array(1);
         data[0] = counterInput.value;
-        ble.write(app.connectedPeripheral.id,
-            SERVICE, WRITE_CHARACTERISTIC, data.buffer,
-            function() {
-                app.log("Write Success");
-            },
-            app.onError);
+        ble.write(app.connectedPeripheral.id, SERVICE, WRITE_CHARACTERISTIC, data.buffer, function() {
+            app.log("Write Success");
+        }, app.onError);
     },
     startNotification: function() {
         app.log('startNotification');
-        ble.startNotification(app.connectedPeripheral.id, SERVICE,
-            NOTIFY_CHARACTERISTIC, app.onNotify, app.onError);
+        ble.startNotification(app.connectedPeripheral.id, SERVICE, NOTIFY_CHARACTERISTIC, app.onNotify, app.onError);
     },
     stopNotification: function() {
         app.log('startNotification');
-        ble.stopNotification(app.connectedPeripheral.id, SERVICE,
-            NOTIFY_CHARACTERISTIC, function() {
+        ble.stopNotification(app.connectedPeripheral.id, SERVICE, NOTIFY_CHARACTERISTIC, function() {
             app.log("Notifications Stopped");
         }, app.onError);
     },
